@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+			http://www.springframework.org/schema/task  
+			http://www.springframework.org/schema/task/spring-task-3.2.xsd  ">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.peak,test" />
+	
+	<bean id="UnionUserConvert2PeakDataConfig" class="com.peak.cli.model.SDKDb2PeakDataConfig">
+		<property name="union_db_ip" value="192.168.143.39:3306" /><!-- 192.168.0.85:3306 -->
+		<property name="union_user_name" value="root" /><!-- admin -->
+		<property name="union_password" value="abcdabcd" /><!-- d2cD9MKR77Xd -->
+		<property name="union_db_prefix" value="union_users_" />
+		<property name="union_db_hash_min" value="0" />
+		<property name="union_db_hash_max" value="4" />
+		<property name="union_table_prefix" value="tb_openid_playerids_" />
+		<property name="union_table_hash_min" value="0" />
+		<property name="union_table_hash_max" value="99" />
+		<property name="peak_data_db_ip" value="192.168.143.39:3306" />
+		<property name="peak_data_user_name" value="root" />
+		<property name="peak_data_password" value="abcdabcd" />
+		<property name="peak_data_db" value="peak_data_01" />
+		<property name="peak_deal_db" value="peak_deal" />
+		<property name="peak_data_table_prefix" value="user_" />
+	</bean>
+</beans>
